@@ -1,0 +1,18 @@
+{% extends "ethagaval/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    {% include "ethagaval/includes/intro.html" with intro=self.description only %}
+
+    {% with self.resources.all as resources %}
+        {% if resources %}    
+            <div class="list-group">
+                {% for resource in resources %}
+                    {% include "ethagaval/includes/resource_list_item.html" %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% include "ethagaval/includes/related_links.html" with related_links=self.related_links.all only %}
+{% endblock %}

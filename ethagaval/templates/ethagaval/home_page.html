@@ -1,0 +1,7 @@
+{% extends "ethagaval/base.html" %}
+{% load ethagaval_tags %}
+
+{% block content %}
+	{% include "ethagaval/includes/search_box.html" only %}
+    {% include "ethagaval/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+{% endblock %}
